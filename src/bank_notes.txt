@@ -1,0 +1,358 @@
+There are several Angular constructs that are used to build Angular applications. Some of the most important ones are:
+
+Components: Components are the building blocks of an Angular application. They are responsible for handling the user interface and can contain other Angular constructs like services and directives.
+
+Services: Services are used to provide functionality that can be shared across multiple components. They can be used to perform tasks like data retrieval, validation, and communication with external systems.
+
+Directives: Directives are used to add behavior to HTML elements. They can be used to modify the appearance of elements, add event handlers, or create custom behavior.
+
+Pipes: Pipes are used to transform data before it is displayed to the user. They can be used to format dates, numbers, and text, among other things.
+
+Modules: Modules are used to organize an Angular application into functional units. They can contain components, services, directives, pipes, and other modules.
+
+Routing: Routing is used to navigate between different views of an Angular application. It allows users to move from one page to another without reloading the entire application.
+
+Dependency Injection: Dependency Injection is a design pattern used to manage the dependencies between different Angular constructs. It allows for the creation of loosely coupled components that can be easily tested and maintained.
+
+Overall, these constructs work together to create a powerful and flexible framework for building modern web applications with Angular.
+
+
+Life cycle of angular code ts
+================================
+methods work only when you call the methods but constructor and ngonit works without calling
+
+    constructor--> ngOnit--> other methods
+
+Data binding in angular (data sharing in components)
+====================================================
+
+html - view
+
+ts - component
+
+    1. One way binding 
+    ===================
+
+        1.1 Component to view data sharing
+        ----------------------------------
+
+            1.1.1) String Interpolation     {{variable}} (eg :- this is provided in <h2>{{data}}</h2>)
+
+            1.1.2) Property Binding         [property]="value" (eg :- [placeholder]="inputplaceholderdata")
+
+        
+        1.2 View to Component data sharing
+        ----------------------------------
+
+            1.2.1) Event Binding            (event)="method()" (eg :- (click)="login()")
+
+            1.2.2) $event Binding           (event)="method($event)" (used to run event and accept data)
+
+            1.2.3) Event Binding with               #variable
+                    template rendering variable
+
+
+    1. Two way binding :-
+    ===================
+
+        2.1 ngModel Method :-   [(ngModel)]="property"  Used by importing --- FormsModule
+
+                                for using ngModel ensure unique name and id for input elements
+
+                                By using ngModel, you can keep your component's state in sync with the user's input without
+                                 having to manually handle updates to the input value or manually trigger updates to the
+                                  component's state. This can greatly simplify the process of building forms in Angular
+                                   and make it easier to manage their state.
+
+
+
+    Redirection in Angular :-
+    ==========================
+
+        Module - AppRoutingModule
+            Router  :-  A class used for Redirection in angular -!
+                Method - navigateByUrl
+
+
+    Dependency Injection :-
+    =======================
+    
+               - done to inherit methods and variable between classes
+
+                - It is done inside access specifiers
+
+                - Access Specifiers :- Private/Public (private can me used only within class injected)
+
+                - Reference/Object : ClassName
+
+                - reference.method()
+
+                - Router link in used instead of href
+
+
+    Angular Services :-
+    ===================
+
+        to store and read data and methods that are accessible throughout the angular application
+
+        - all components can access the data and methods in the service file easily.
+
+        -- ng generate service serviceName  -- ng g s serviceName
+
+
+    *Angular Directives :-  Used to manipulate DOM in Angular
+    ======================
+
+            1) Component Directives :- 
+
+            2) Structural Directives :-  *ngFor *ngIf
+
+
+        Angular directives are custom HTML elements or attributes that provide new functionality to a web page or
+         application. They allow Angular to manipulate the DOM by changing the behavior, appearance or layout of 
+         an element. Directives are used to add dynamic behavior to templates, such as creating reusable components,
+          binding values, hiding or showing elements, etc. There are three types of directives in Angular: Component
+           Directives, Structural Directives, and Attribute Directives.
+
+           1)Component Directives: Component Directives are the most commonly used directives in Angular. They are 
+                                    essentially custom HTML elements that encapsulate both the template and logic for
+                                     a view. They are defined with the @Component decorator and use a template to define 
+                                     the view.
+
+           2)Structural Directives: Structural Directives are used to manipulate the DOM layout by adding or removing 
+                                    elements. They are identified by an asterisk (*) in front of the directive name. Examples
+                                     of structural directives are *ngFor and *ngIf.
+
+           3)Attribute Directives: Attribute Directives are used to change the appearance or behavior of an existing
+                                     element. They are applied as HTML attributes to elements. Examples of attribute 
+                                     directives are [ngStyle] and [ngClass]. 
+
+                                     component,structural,attribute(csa)
+
+
+
+Validation in Angular :-
+========================
+
+form creation in angular
+
+            1. Template Driven Form 
+
+            2. Model Driven Form :-
+
+                    2.1.Reactive Form :-
+                    --------------------    - Used to create model of a form
+
+                                            - reactiveFormsModule  : Module
+                                                -FormBuiler        : Class
+                                                  -group()         : Method   (MCM)
+
+                                            - group,,array,control (GAC) are present in reactiveform
+
+
+                            Steps:-
+                            -------
+
+                                1) Creater reactive Form for Register
+
+                                        registerForm=this.fb.group({
+
+                                            username_reg:[""],
+                                            accountno_reg:[""],
+                                            password_reg:[""]
+
+
+                                        })
+
+                                2) Bind [formGroup]="registerForm" on form html tag 
+
+                                3) Access data in component.ts method as
+
+                                    var acno = this.registerForm.value.accountno_reg
+                                    var uname = this.registerForm.value.username_reg
+                                    var pwd = this.registerForm.value.password_reg
+
+
+Validation Working Pattern:-
+---------------------------
+                FormBuiler dependency Injection 
+                -> Model Form created (using group)
+                -> Apply Form form to html ([formGroup]
+                -> formControl name) -> loginForm.value in function 
+                -> apply validation rule from Validators class .required and .pattern method  ('[0-9a-zA-z]+')
+                -> if(this.loginForm.valid) returns true Form Validation Success
+
+
+Local Storage in Angular :-
+=============================
+
+                - localStorage.getItem()
+                - localStorage.setItem()
+                - localStorage.getItem()
+
+            ts-json (stringify)
+            json-ts (parse)
+
+Parent Child Component Communication :-
+=======================================
+
+        @Input() : decorator is used to expose a property of a child
+                     component to its parent component, allowing the parent 
+                     component to pass data to the child component.
+
+        @Output() : decorator is used to define an event emitter in a child
+                     component that can emit events to its parent component,
+                      allowing the child component to trigger events that the 
+                      parent component can respond to.
+
+
+                Syntax:
+                -------
+                         @Input() propertyName: String|undefined;
+                         @Output() propertyName: propertyType;
+
+    
+    Event Creation in Angular
+    =========================
+
+                        We can create our own events in Angular using event Creation
+
+                    Using EventEmitter - Class used to create user defined events.
+
+
+                            eventname = new EventEmitter()
+
+                            emit() - for calling event emitter , to define when to start the event
+                                    
+                                    - this.eventname.emit() where eventname is an object of EventEmitter class
+
+
+Date and Time in Angular :-
+===========================
+
+        class - Date
+
+
+Angular Pipes
+=============
+
+            to convert data into another Format
+
+
+        Pipe Creation
+        =============
+
+                -   ng generate pipe (pipeName)
+
+
+API creation in angular
+=======================
+
+    HttpClientModule :- 
+                        Module used to create web api calls
+
+
+                        HttpClient - class inside the HttpClientModule
+
+            
+            folder      file      class     methods
+
+            package     module    class     method
+
+            import { HttpClientModule } from '@angular/common/http';
+
+
+Asynchronous Code Handling in ts
+================================
+
+    javaScript  -- Promises
+    ------------
+                    - resolve  then()
+                    - reject   catch()
+
+
+    typeScript  -- Observables
+    ------------
+
+                    - resolve subscribe()
+                    - reject catch()
+
+
+Header Generation for Api request
+=================================
+
+        HttpHeaders  - class used to generate Header
+
+
+
+to run application on server
+*==========================*
+
+        ng build
+
+        npm i -g http-server
+
+        http-server to run
+
+
+2nd Project - E-commerce
+
+Lazy Loading 
+=============
+
+            provides less loading time for high traffic pages
+
+            we can create a module using lazy loading which can be used to create other modules
+
+Command for lazy loading 
+
+            ng g module (moduleName) --route (moduleName) --module app.module
+
+        The "ng g module (moduleName) --route (moduleName) --module app.module" command generates a new module with
+        a routing module for the specified module name, and adds it to the "app.module.ts" file. It is an Angular
+        CLI command used for creating and importing modules into an Angular application.
+
+Command normal module Generation
+
+        ng g m (moduleName)
+
+
+Json Server 
+===========
+
+            to use data in json file we have to install a server
+
+            npm i --save json-server (Local Installation)
+
+
+
+2. Run Server in server file location
+
+                        server file has to be run from db.json file path
+
+
+            npx json-server --watch db.json --port 3000
+
+
+**Behaviour Subject**
+=====================
+
+            To share data between modules
+
+            it is an Asynchronous method
+
+            rxjs library (Reactive Extension for JavaScript)
+
+            it is used to handle async implementation in angular 
+
+
+Activated route in Angular
+===========================
+
+
+    used to access data from urls(params)
+
+    class  -> ActivatedRoute
+    method -> params()      (Its an async method)
+
+    

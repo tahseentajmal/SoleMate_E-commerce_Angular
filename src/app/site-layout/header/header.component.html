@@ -1,0 +1,29 @@
+<!-- Navigation-->
+<nav class="navbar navbar-expand-lg sticky-top navbar-light  navbar-light bg-light">
+    <div class="container p-2 px-lg-5">
+        <a class="navbar-brand" href="#!"><strong><i class="fa-sharp fa-solid fa-shoe-prints" style="color: #000000;"></i> Sole<span>Mate</span></strong></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="#!">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="products/AddProduct">Add Product</a></li>
+            </ul>
+            <div class="row no-gutte w-50 align-items-center">
+                <div class="col col-auto d-flex">
+                    <input [(ngModel)]="searchTerm" (keyup)="search($event)" class="form-control border-secondary rounded-pill " type="search" placeholder="search" id="example-search-input2">
+                    <button  class="btn btn-outline-light text-dark rounded-pill " type="button">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+            </div>
+            <form class="d-flex">
+                <button class="btn btn-outline-dark" type="submit">
+                    <i class="bi-cart-fill me-1"></i>
+                    Cart
+                    <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                </button>
+            </form>
+          
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,56 @@
+<div class=" container p-3 w-75 justify-content-center">
+    <div style=""
+        class="formBox bg-dark rounded-3 text-white text-center m-5 align-items-center justify-content-center p-4">
+        <div style="font-family: 'Staatliches', cursive; width: 50%;"
+            class="container bg-warning text-dark rounded mt-4">
+            <h1>Edit Product Form</h1>
+        </div>
+        <form (ngSubmit)="updateProduct(updateProductForm)" #updateProductForm="ngForm" class="m-5">
+            <div class="m-3 form-group">
+                <input [(ngModel)]="pdata.id" type="text" class="form-control" id="pid1" name="pid1" placeholder="Product ID">
+            </div>
+            <div class="m-3 form-group">
+                <input [(ngModel)]="pdata.productName" type="text" class="form-control" id="pid2" name="pid2" placeholder="Product Name">
+            </div>
+            <div class="m-3 form-group">
+                <input [(ngModel)]="pdata.categoryId" type="text" class="form-control" id="pid3" name="pid3"
+                    placeholder="Category ID      ( 1: Running , 2: Sneakers , 3: Boots , 4: Clogs , 5: Sandals )">
+            </div>
+            <div class="m-3 form-group">
+                <input [(ngModel)]="pdata.categoryName" type="text" class="form-control" id="pid4" name="pid4" placeholder="Category Name">
+            </div>
+            <div class="m-3 form-group">
+                <input [(ngModel)]="pdata.gender" type="text" class="form-control" id="pid5" name="pid5" placeholder="Gender">
+            </div>
+            <div class="m-3 form-group">
+                <input [(ngModel)]="pdata.description" type="text" class="form-control" id="pid6" name="pid6" placeholder="Description">
+            </div>
+            <div class="m-3 form-group">
+                <input [(ngModel)]="pdata.price" type="text" class="form-control" id="pid7" name="pid7" placeholder="Price ">
+            </div>
+            <div class="m-3 form-group">
+                <input [(ngModel)]="pdata.isAvailable" type="text" class="form-control" id="pid8" name="pid8" placeholder="Availability (true/false) ">
+            </div>
+            <div class="m-3 form-group">
+                <input [(ngModel)]="pdata.productImage" type="text" class="form-control" id="pid9" name="pid9" placeholder="Product Image Url ">
+            </div>
+            <div class="m-3 form-group">
+                <input [(ngModel)]="pdata.rating" type="text" class="form-control" id="pid10" name="pid10" placeholder="Product Rating">
+            </div>
+            <div class="m-3 form-group">
+                <input [(ngModel)]="pdata.review" type="text" class="form-control" id="pid11" name="pid11" placeholder="Product Review">
+            </div>
+            <div class="m-3 form-group">
+                <input [(ngModel)]="pdata.vendorName" type="text" class="form-control" id="pid12" name="pid12" placeholder="Brand Name">
+            </div>
+            <div class="m-3 form-group">
+                <input [(ngModel)]="pdata.warranty" type="text" class="form-control" id="pid11" name="pid11" placeholder="Warranty">
+            </div>
+            <button type="submit" style="font-family: 'Staatliches', cursive;"
+                class=" m-3 w-25 btn btn-outline-warning">Update</button>
+
+
+        </form>
+
+    </div>
+</div>

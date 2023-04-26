@@ -1,0 +1,71 @@
+<!-- Header-->
+<header class=" py-5 p-5 h-">
+    <div class="container banner px-4 px-lg-5 my-5">
+        <div class="text-center text-warning flex ">
+            <!-- <h1 class="display-4 fw-bolder">One Stop Footwear Solution.</h1> -->
+            <img class="img-fluid w-30" src="https://i.postimg.cc/SsDmvr9S/sole-mate-1.png" alt="..." />
+        </div>
+    </div>
+</header>
+<!--Categories Section-->
+<div class="categories p-4">
+    <div class="container category d-flex justify-content-between ">
+        <div class="type p-2 border  border-5 rounded-circle">
+            <a (click)="filter(2)" ><img style="height: 200px; object-fit:cover;" src="https://i.postimg.cc/y8dgVxbs/Sneakers.png"
+                    alt=""></a>
+        </div>
+        <div class="type p-2 border border-5 rounded-circle">
+            <a (click)="filter(5)" ><img style="height: 200px; object-fit:cover;" src="https://i.postimg.cc/85VzrztF/Sandals.png"
+                    alt=""></a>
+        </div>
+        <div class="type p-2 border border-5 rounded-circle">
+            <a (click)="filter(4)" ><img style="height: 200px; object-fit:cover;" src="https://i.postimg.cc/kG6Y37Pc/Clogs.png"
+                    alt=""></a>
+        </div>
+        <div class="type p-2 border border-5 rounded-circle">
+            <a (click)="filter(3)" ><img style="height: 200px; object-fit:cover;" src="https://i.postimg.cc/pT93xfDz/Boots.png"
+                    alt=""></a>
+        </div>
+        <div class="type p-2 border border-5 rounded-circle">
+            <a (click)="filter(1)" ><img style="height: 200px; object-fit:cover;" src="https://i.postimg.cc/x8257Mg0/Running.png"
+                    alt=""></a>
+        </div>
+        <div class="type p-2 border border-5 rounded-circle">
+            <a (click)="filter('')" ><img style="height: 200px; object-fit:cover;" src="https://i.postimg.cc/5NRgWX4W/all-shoes.png"
+                    alt=""></a>
+        </div>
+    </div>
+</div>
+<!-- Section-->
+<section class="py-1 bg-warning">
+    <div class="container px-4 px-lg-5 mt-5 ">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            <!--Product Card-->
+            <div *ngFor="let i of filterProducts | filter:searchKey:'productName' " class="productCard col mb-5">
+                <div id="productCard" class="card h-100">
+                    <!-- Product image-->
+                    <img style="height: 300px;" class="card-img-top " src="{{i.productImage}}" alt="..." />
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <!-- Product name-->
+                            <h5 class="fw-bolder p-2">{{i.productName}}</h5>
+                            <!-- Product price-->
+                            <h6><strong>Price :</strong> Rs. {{i.price}} </h6>
+                            <!-- Product price-->
+                            <h6><strong>Rating :</strong> {{i.rating}}/5 </h6>
+                            <!--Gender-->
+                            <p><em>Intended for <strong class="text-warning">{{i.gender}}s</strong></em></p>
+
+                        </div>
+                    </div>
+                    <!-- Product actions-->
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                        <div class="text-center"><a class="btn btn-outline-dark mt-auto"
+                                href="products/ViewProduct/{{i.id}}"><strong>Buy Now</strong></a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
